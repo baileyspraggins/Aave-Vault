@@ -7,6 +7,9 @@
 
 An ERC-4626 vault which allows users to deposit/withdraw ERC-20 tokens supported by Aave v3, manages the supply and withdrawal of these assets in Aave, and allows a vault manager to take a fee on yield earned.
 
+> **info**
+> This bratch is dedicated to deploying aToken wrappers to Avalanche C-Chain and Avalanches Fuji Testnet.
+
 ## Instructions
 
 To compile/build the project, run `forge build`.
@@ -31,11 +34,14 @@ This test suite also includes a16z's [ERC-4626 Property Tests](https://a16zcrypt
 To deploy the vault contract, first check that the deployment parameters in `script/Deploy.s.sol` are configured correctly, then check that your `.env` file contains these keys:
 
 ```
-POLYGON_RPC_URL=xxx
-MUMBAI_RPC_URL=xxx
-ETHERSCAN_API_KEY=xxx
-PRIVATE_KEY=xxx
+PRIVATE_KEY=
+FUJI_RPC_URL=
+FUJI_API_KEY=
+AVALANCHE_API_KEY=
+AVALANCHE_RPC_URL=
 ```
+
+Initial deposits are required in order to help prevent exchange rate attacks on the aToken. A recommended deposit amount is between $50 and $100 per asset. The initial depsit values are already set within the `TokenRegistry` but can be changed if necessary. Please make sure the account you are deploying from contains these tokens before running the deployment script.
 
 Then run:
 
@@ -45,16 +51,16 @@ source .env
 
 Then run one of the following commands:
 
-Mumbai Testnet:
+Fuji Testnet:
 
 ```bash
-forge script script/Deploy.s.sol:Deploy --rpc-url $MUMBAI_RPC_URL --broadcast --verify --legacy -vvvv
+forge script script/Deploy.s.sol:Deploy --rpc-url $FUJI_RPC_URL --broadcast --verify --legacy -vvvv
 ```
 
-Polygon Mainnet:
+Avalanche C-Chain:
 
 ```bash
-forge script script/Deploy.s.sol:Deploy --rpc-url $POLYGON_RPC_URL --broadcast --verify --legacy -vvvv
+forge script script/Deploy.s.sol:Deploy --rpc-url $AVALANCHE_RPC_URL --broadcast --verify --legacy -vvvv
 ```
 
 ## Audits
