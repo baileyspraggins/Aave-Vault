@@ -11,8 +11,7 @@ import { TokenRegistry } from "../tokenRegistries/TokenRegistry.sol";
 import "../src/ATokenVault.sol";
 
 contract Deploy is Script, TokenRegistry {
-
-
+    // ===================================================
     // DEPLOYMENT PARAMETERS - CHANGE THESE FOR YOUR VAULT
     // ===================================================
     // TODO: Replace with correct addresses
@@ -46,7 +45,6 @@ contract Deploy is Script, TokenRegistry {
         // Check balances to make sure we have enough to deploy
         for (uint256 i = 0; i < tokens.length; i++) {
             require(
-
                 tokens[i].initialDeposit != 0,
                 "Initial deposit not set. This prevents a frontrunning attack, please set a non-trivial initial deposit."
             );
