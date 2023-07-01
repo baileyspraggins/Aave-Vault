@@ -15,7 +15,6 @@ contract TokenRegistry {
     address poolAddressProvider = address(0);
     Token[] tokens;
 
-    // TODO: ASK about compatability
     /* Arbitrum Mainnet Deployments */
     Token public arb = Token({
         shareName: "Wrapped aARB",

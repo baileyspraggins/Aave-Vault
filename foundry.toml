@@ -19,9 +19,11 @@ mumbai = "${MUMBAI_RPC_URL}"
 polygon = "${POLYGON_RPC_URL}"
 fuji = "${FUJI_RPC_URL}"
 avalanche = "${AVALANCHE_RPC_URL}"
+arbitrum = "${ARBITRUM_RPC_URL}"
 
 [etherscan]
 mumbai = { key = "${ETHERSCAN_API_KEY}" }
 polygon = { key = "${ETHERSCAN_API_KEY}" }
 fuji = { key = "${FUJI_API_KEY}" }
 avalanche = { key = "${AVALANCHE_API_KEY}" }
+arbitrum = { key = "${ARBITRUM_API_KEY}" }
